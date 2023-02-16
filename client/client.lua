@@ -12,7 +12,6 @@ RegisterNetEvent('kevin-buffconsumables:consume', function (item, data)
             TriggerEvent('animations:client:EmoteCommandStart', {'c'})
             AddPlayerProps(data)
         end, function() -- Cancel
-            OnDelivery = false
             TriggerEvent('animations:client:EmoteCommandStart', {'c'})
             QBCore.Functions.Notify('Cancelled', 'error')
         end)
