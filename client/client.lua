@@ -25,8 +25,11 @@ end)
 function AddPlayerProps(data)
     exports['ps-buffs']:AddBuff(data.buffname, (data.bufftime * 60000))
     if data.type == 'drink' then
-        TriggerServerEvent('QBCore:Server:SetMetaData', 'thirst', QBCore.Functions.GetPlayerData().metadata['thirst'] + data.metadata)
+        TriggerServerEvent('consumables:server:addThirst', QBCore.Functions.GetPlayerData().metadata['thirst'] + data.metadata)
+    elseif data.type == 'eat' then
+        TriggerServerEvent('consumables:server:addHunger', QBCore.Functions.GetPlayerData().metadata['hunger'] + data.metadata)
     else
-        TriggerServerEvent('QBCore:Server:SetMetaData', 'hunger', QBCore.Functions.GetPlayerData().metadata['hunger'] + data.metadata)
+        TriggerServerEvent('consumables:server:addHunger', QBCore.Functions.GetPlayerData().metadata['hunger'] + data.metadata)
+        TriggerServerEvent('consumables:server:addThirst', QBCore.Functions.GetPlayerData().metadata['thirst'] + data.metadata)
     end
 end
