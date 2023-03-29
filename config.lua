@@ -4,7 +4,7 @@ Config = Config or {}
 -- Buffs are default found in ps-buffs unless you have your own custom buffs
 Config.BuffItems = {
     ['coffee'] = { -- used for sanitation job https://kevin-scripts.tebex.io/package/5516125
-        type = 'drink',
+        type = 'drink', -- drink / eat / both
         metadata = math.random(20, 50), -- amount of thirst/ hunger gets applied to player stats
         animation = 'coffee',
         useprogbar = false, -- if to use progress bar or not
